@@ -1,0 +1,32 @@
+	CALL aGamma 1 2
+	JMP 0
+fibo:
+	LOAD 2 1
+	LIT 0
+	LE
+	NOT
+	JFALSE a1
+	LOAD 1 1
+	STO 0 1
+	LOAD 1 2
+	STO 1 1
+	LOAD 1 2
+	LOAD 0 1
+	ADD
+	STO 1 2
+	LOAD 2 1
+	LIT 1
+	SUB
+	STO 2 1
+	CALL fibo 1 1
+a1:
+	RET
+aGamma:
+	LIT 0
+	STO 0 1
+	LIT 1
+	STO 0 2
+	CALL fibo 0 1
+	LOAD 0 1
+	STO 1 1
+	RET

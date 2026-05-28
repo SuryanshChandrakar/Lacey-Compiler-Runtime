@@ -1,0 +1,20 @@
+Virtual Machine for the example intermediate-code "AM" (abstract machine) 
+
+
+--------------------------------------------------------------------------------
+
+usage: ./am_vm [options] <bps-file> [parameters for bps program]
+
+where [options] can be
+      -s --show-stacks   to show the stacks after every operation
+      -o --show-ops      to show every operation before executing it
+      -c --creep         to pause after every operation (note that
+                         this option is disabled, if neither stacks
+                         nor ops are shown)
+
+the [parameters for bps program] must be integers and are put on the
+stack of the main frame (the first parameter is pushed first, then the)
+second and so on.
+
+EXAMPLE: ./am_vm -s -o -c fac_recursive.am 4 3
+would start with the main frame 0:0:0:3:4
