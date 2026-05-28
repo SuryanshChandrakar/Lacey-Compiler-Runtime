@@ -1,0 +1,16 @@
+in/out X;
+	var E;
+	proc F;
+		if 1 < X then begin
+		E := E * X;
+		X := X - 1;
+		F()
+		end;
+
+	begin
+	E := 1;
+	F();
+	X := E
+	end.
+
+

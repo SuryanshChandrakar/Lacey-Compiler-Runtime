@@ -1,0 +1,14 @@
+var X, E;
+
+begin
+	X := 5; // E is set to the facuilty of X
+	E := 1;
+
+	WHILE not X <= 0 do begin
+		E := E * X;
+		X := X - 1
+	end;
+
+	X := E
+end.
+

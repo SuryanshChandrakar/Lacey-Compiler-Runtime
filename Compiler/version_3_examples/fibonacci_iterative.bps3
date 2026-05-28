@@ -1,0 +1,17 @@
+in/out n;
+var
+	a, b, temp;
+
+begin
+	a := 0;
+	b := 1;
+
+	while not n <= 0 do begin
+		temp := a;
+		a := b;
+		b := b+temp;
+		n := n-1
+	end;
+
+	n := a
+end.

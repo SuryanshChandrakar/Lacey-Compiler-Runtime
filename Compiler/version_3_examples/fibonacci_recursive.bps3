@@ -1,0 +1,21 @@
+in/out n;
+	var a, b;
+
+	proc fibo;
+		var temp;
+		begin
+		if not n <= 0 then begin
+		temp := a;
+		a := b;
+		b := b+temp;
+		n := n-1;
+		fibo()
+		end
+		end;
+
+	begin
+	a := 0;
+	b := 1;
+	fibo();
+	n := a
+	end.

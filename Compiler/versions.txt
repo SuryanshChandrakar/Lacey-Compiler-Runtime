@@ -1,0 +1,42 @@
+
+use 
+   diff version_x/compiler.yy version_(x+1)/compiler.yy
+or graphical diff utilities (like Kompare, Kdiff3 or Xxdiff)
+to learn how the additional features work
+
+// -----------------------------------------------------------------------------
+
+Version 1
+	- "Waterfall" model programs - just one main procedure
+	- control-structures (if-then-fi, if-then-else-fi, while-do-done, for-do-done)
+	- expressions, variable assignment (X := 4-5*Y;)
+	- this version can not have I/O variables, because they would require a
+	  distinction between declaration-level 0 (the I/O level) and level 1 (the
+	  main procedures level)
+
+
+Version 2
+	- Can have multiple procedures (CALL and RET are used now)
+	- static scoping works (you can access variables that are outside the
+	  current procedure)
+	- variables and procedures have to have unique names
+	- accessing variables in parallel - or even lower - blocks is accepted,
+	  although the code would actually access the variables from the same block,
+	  that have the same offset e.g.
+	     proc X; var a,b; begin ...        end;
+	     proc Y; var c;   begin a:=0; b:=0 end;
+	  would be accepted, but infact, c would be set to 0, because c is the
+	  variable of Y that has offset 1. accessing b in Y now
+	  (b having an offset higher than Y's maximum offset) would result in
+	  accessing the lower frame (you might change its static link for example)
+	  this is the case because version 2 only uses 1 common symbol-table, which
+	  doesn't forget the symbols of procs after they are left.
+
+  
+Version 3
+	- variables in different procedures may have the same names
+
+
+Version 4 (todo)
+	- Can have functions,
+	- functions and procedures may have parameters

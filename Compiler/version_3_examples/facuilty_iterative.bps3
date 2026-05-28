@@ -1,0 +1,13 @@
+in/out X;
+var E;
+begin
+	E := 1;
+
+	WHILE not X <= 0 do begin
+		E := E * X;
+		X := X - 1
+	end;
+
+	X := E
+end.
+

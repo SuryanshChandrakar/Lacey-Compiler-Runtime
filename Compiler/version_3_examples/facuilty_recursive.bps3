@@ -1,0 +1,28 @@
+in/out X;
+	var E, Test;
+	proc F;
+		var Z;
+		proc F1;
+			begin
+			end;
+		proc F2;
+			Z;
+			proc F;
+				var Z;
+				begin
+				end;
+			begin
+			end;
+		if 1 < X then begin
+		E := E * X;
+		X := X - 1;
+		F()
+		end;
+
+	begin
+	E := 1;
+	F();
+	X := E
+	end.
+
+

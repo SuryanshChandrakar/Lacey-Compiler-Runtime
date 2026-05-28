@@ -1,0 +1,25 @@
+	CALL aGamma 1 1
+	JMP 0
+F:
+	LIT 1
+	LOAD 2 1
+	LT
+	JFALSE a1
+	LOAD 1 1
+	LOAD 2 1
+	MULT
+	STO 1 1
+	LOAD 2 1
+	LIT 1
+	SUB
+	STO 2 1
+	CALL F 1 0
+a1:
+	RET
+aGamma:
+	LIT 1
+	STO 0 1
+	CALL F 0 0
+	LOAD 0 1
+	STO 1 1
+	RET
